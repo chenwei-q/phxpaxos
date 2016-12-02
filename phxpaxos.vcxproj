@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\algorithm;$(ProjectDir)\src\benchmark;$(ProjectDir)\src\checkpoint;$(ProjectDir)\src\comm;$(ProjectDir)\src\communicate;$(ProjectDir)\src\config;$(ProjectDir)\src\logstorage;$(ProjectDir)\src\master;$(ProjectDir)\src\node;$(ProjectDir)\src\sm-base;$(ProjectDir)\src\tools;$(ProjectDir)\src\ut;$(ProjectDir)\src\utils;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="plugin\logger_google\logger_google.cpp" />
+    <ClCompile Include="plugin\logger_google\logger_google_impl.cpp" />
+    <ClCompile Include="plugin\monitor\monitor.cpp" />
+    <ClCompile Include="plugin\monitor\monitor_bp.cpp" />
+    <ClCompile Include="sample\phxecho\echo_server.cpp" />
+    <ClCompile Include="sample\phxecho\echo_sm.cpp" />
+    <ClCompile Include="sample\phxecho\main.cpp" />
+    <ClCompile Include="sample\phxelection\election.cpp" />
+    <ClCompile Include="sample\phxelection\election_main.cpp" />
+    <ClCompile Include="sample\phxkv\kv.cpp" />
+    <ClCompile Include="sample\phxkv\kvsm.cpp" />
+    <ClCompile Include="sample\phxkv\kv_grpc_client.cpp" />
+    <ClCompile Include="sample\phxkv\kv_grpc_client_main.cpp" />
+    <ClCompile Include="sample\phxkv\kv_grpc_server.cpp" />
+    <ClCompile Include="sample\phxkv\kv_grpc_server_main.cpp" />
+    <ClCompile Include="sample\phxkv\kv_paxos.cpp" />
+    <ClCompile Include="sample\phxkv\log.cpp" />
+    <ClCompile Include="sample\phxkv\utils.cpp" />
+    <ClCompile Include="src\algorithm\acceptor.cpp" />
+    <ClCompile Include="src\algorithm\base.cpp" />
+    <ClCompile Include="src\algorithm\checkpoint_receiver.cpp" />
+    <ClCompile Include="src\algorithm\checkpoint_sender.cpp" />
+    <ClCompile Include="src\algorithm\commitctx.cpp" />
+    <ClCompile Include="src\algorithm\committer.cpp" />
+    <ClCompile Include="src\algorithm\instance.cpp" />
+    <ClCompile Include="src\algorithm\ioloop.cpp" />
+    <ClCompile Include="src\algorithm\learner.cpp" />
+    <ClCompile Include="src\algorithm\learner_sender.cpp" />
+    <ClCompile Include="src\algorithm\msg_counter.cpp" />
+    <ClCompile Include="src\algorithm\proposer.cpp" />
+    <ClCompile Include="src\benchmark\bench_main.cpp" />
+    <ClCompile Include="src\benchmark\bench_server.cpp" />
+    <ClCompile Include="src\benchmark\bench_sm.cpp" />
+    <ClCompile Include="src\benchmark\fsync_bench.cpp" />
+    <ClCompile Include="src\checkpoint\cleaner.cpp" />
+    <ClCompile Include="src\checkpoint\cp_mgr.cpp" />
+    <ClCompile Include="src\checkpoint\replayer.cpp" />
+    <ClCompile Include="src\communicate\communicate.cpp" />
+    <ClCompile Include="src\communicate\dfnetwork.cpp" />
+    <ClCompile Include="src\communicate\network.cpp" />
+    <ClCompile Include="src\communicate\tcp\event_base.cpp" />
+    <ClCompile Include="src\communicate\tcp\event_loop.cpp" />
+    <ClCompile Include="src\communicate\tcp\message_event.cpp" />
+    <ClCompile Include="src\communicate\tcp\notify.cpp" />
+    <ClCompile Include="src\communicate\tcp\tcp.cpp" />
+    <ClCompile Include="src\communicate\tcp\tcp_acceptor.cpp" />
+    <ClCompile Include="src\communicate\tcp\tcp_client.cpp" />
+    <ClCompile Include="src\communicate\udp.cpp" />
+    <ClCompile Include="src\comm\breakpoint.cpp" />
+    <ClCompile Include="src\comm\inside_options.cpp" />
+    <ClCompile Include="src\comm\logger.cpp" />
+    <ClCompile Include="src\comm\options.cpp" />
+    <ClCompile Include="src\config\config.cpp" />
+    <ClCompile Include="src\config\system_v_sm.cpp" />
+    <ClCompile Include="src\logstorage\db.cpp" />
+    <ClCompile Include="src\logstorage\log_store.cpp" />
+    <ClCompile Include="src\logstorage\paxos_log.cpp" />
+    <ClCompile Include="src\logstorage\system_variables_store.cpp" />
+    <ClCompile Include="src\master\master_damon.cpp" />
+    <ClCompile Include="src\master\master_sm.cpp" />
+    <ClCompile Include="src\master\master_variables_store.cpp" />
+    <ClCompile Include="src\node\group.cpp" />
+    <ClCompile Include="src\node\node.cpp" />
+    <ClCompile Include="src\node\pnode.cpp" />
+    <ClCompile Include="src\sm-base\sm.cpp" />
+    <ClCompile Include="src\sm-base\sm_base.cpp" />
+    <ClCompile Include="src\test\test_main.cpp" />
+    <ClCompile Include="src\test\test_server.cpp" />
+    <ClCompile Include="src\test\test_sm.cpp" />
+    <ClCompile Include="src\tools\paxos_log_tools.cpp" />
+    <ClCompile Include="src\tools\system_variables_tools.cpp" />
+    <ClCompile Include="src\utils\bytes_buffer.cpp" />
+    <ClCompile Include="src\utils\concurrent.cpp" />
+    <ClCompile Include="src\utils\crc32.cpp" />
+    <ClCompile Include="src\utils\serial_lock.cpp" />
+    <ClCompile Include="src\utils\socket.cpp" />
+    <ClCompile Include="src\utils\timer.cpp" />
+    <ClCompile Include="src\utils\util.cpp" />
+    <ClCompile Include="src\utils\wait_lock.cpp" />
+    <ClCompile Include="src\ut\acceptor_ut.cpp" />
+    <ClCompile Include="src\ut\db_ut.cpp" />
+    <ClCompile Include="src\ut\make_class.cpp" />
+    <ClCompile Include="src\ut\nodeid_ut.cpp" />
+    <ClCompile Include="src\ut\proposer_ut.cpp" />
+    <ClCompile Include="src\ut\timer_ut.cpp" />
+    <ClCompile Include="src\ut\ut_main.cpp" />
+    <ClCompile Include="src\ut\wait_lock_ut.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\phxpaxos\breakpoint.h" />
+    <ClInclude Include="include\phxpaxos\def.h" />
+    <ClInclude Include="include\phxpaxos\log.h" />
+    <ClInclude Include="include\phxpaxos\network.h" />
+    <ClInclude Include="include\phxpaxos\node.h" />
+    <ClInclude Include="include\phxpaxos\options.h" />
+    <ClInclude Include="include\phxpaxos\sm.h" />
+    <ClInclude Include="include\phxpaxos\storage.h" />
+    <ClInclude Include="plugin\include\phxpaxos_plugin\logger_google.h" />
+    <ClInclude Include="plugin\include\phxpaxos_plugin\monitor.h" />
+    <ClInclude Include="plugin\logger_google\logger_google_impl.h" />
+    <ClInclude Include="plugin\monitor\monitor_bp.h" />
+    <ClInclude Include="sample\phxecho\echo_server.h" />
+    <ClInclude Include="sample\phxecho\echo_sm.h" />
+    <ClInclude Include="sample\phxelection\election.h" />
+    <ClInclude Include="sample\phxkv\def.h" />
+    <ClInclude Include="sample\phxkv\kv.h" />
+    <ClInclude Include="sample\phxkv\kvsm.h" />
+    <ClInclude Include="sample\phxkv\kv_grpc_client.h" />
+    <ClInclude Include="sample\phxkv\kv_grpc_server.h" />
+    <ClInclude Include="sample\phxkv\kv_paxos.h" />
+    <ClInclude Include="sample\phxkv\log.h" />
+    <ClInclude Include="sample\phxkv\utils.h" />
+    <ClInclude Include="src\algorithm\acceptor.h" />
+    <ClInclude Include="src\algorithm\base.h" />
+    <ClInclude Include="src\algorithm\checkpoint_receiver.h" />
+    <ClInclude Include="src\algorithm\checkpoint_sender.h" />
+    <ClInclude Include="src\algorithm\commitctx.h" />
+    <ClInclude Include="src\algorithm\committer.h" />
+    <ClInclude Include="src\algorithm\instance.h" />
+    <ClInclude Include="src\algorithm\ioloop.h" />
+    <ClInclude Include="src\algorithm\learner.h" />
+    <ClInclude Include="src\algorithm\learner_sender.h" />
+    <ClInclude Include="src\algorithm\msg_counter.h" />
+    <ClInclude Include="src\algorithm\proposer.h" />
+    <ClInclude Include="src\benchmark\bench_server.h" />
+    <ClInclude Include="src\benchmark\bench_sm.h" />
+    <ClInclude Include="src\checkpoint\cleaner.h" />
+    <ClInclude Include="src\checkpoint\cp_mgr.h" />
+    <ClInclude Include="src\checkpoint\replayer.h" />
+    <ClInclude Include="src\communicate\communicate.h" />
+    <ClInclude Include="src\communicate\dfnetwork.h" />
+    <ClInclude Include="src\communicate\tcp\event_base.h" />
+    <ClInclude Include="src\communicate\tcp\event_loop.h" />
+    <ClInclude Include="src\communicate\tcp\message_event.h" />
+    <ClInclude Include="src\communicate\tcp\notify.h" />
+    <ClInclude Include="src\communicate\tcp\tcp.h" />
+    <ClInclude Include="src\communicate\tcp\tcp_acceptor.h" />
+    <ClInclude Include="src\communicate\tcp\tcp_client.h" />
+    <ClInclude Include="src\communicate\udp.h" />
+    <ClInclude Include="src\comm\commdef.h" />
+    <ClInclude Include="src\comm\comm_include.h" />
+    <ClInclude Include="src\comm\inside_options.h" />
+    <ClInclude Include="src\comm\logger.h" />
+    <ClInclude Include="src\comm\msg_transport.h" />
+    <ClInclude Include="src\config\config.h" />
+    <ClInclude Include="src\config\config_include.h" />
+    <ClInclude Include="src\config\inside_sm.h" />
+    <ClInclude Include="src\config\system_v_sm.h" />
+    <ClInclude Include="src\logstorage\db.h" />
+    <ClInclude Include="src\logstorage\log_store.h" />
+    <ClInclude Include="src\logstorage\paxos_log.h" />
+    <ClInclude Include="src\logstorage\system_variables_store.h" />
+    <ClInclude Include="src\master\master_damon.h" />
+    <ClInclude Include="src\master\master_sm.h" />
+    <ClInclude Include="src\master\master_variables_store.h" />
+    <ClInclude Include="src\node\group.h" />
+    <ClInclude Include="src\node\pnode.h" />
+    <ClInclude Include="src\sm-base\sm_base.h" />
+    <ClInclude Include="src\test\test_server.h" />
+    <ClInclude Include="src\test\test_sm.h" />
+    <ClInclude Include="src\utils\bytes_buffer.h" />
+    <ClInclude Include="src\utils\concurrent.h" />
+    <ClInclude Include="src\utils\crc32.h" />
+    <ClInclude Include="src\utils\serial_lock.h" />
+    <ClInclude Include="src\utils\socket.h" />
+    <ClInclude Include="src\utils\timer.h" />
+    <ClInclude Include="src\utils\util.h" />
+    <ClInclude Include="src\utils\utils_include.h" />
+    <ClInclude Include="src\utils\wait_lock.h" />
+    <ClInclude Include="src\ut\make_class.h" />
+    <ClInclude Include="src\ut\mock_class.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
